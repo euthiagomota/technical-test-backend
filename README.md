@@ -1,144 +1,104 @@
-// RESUMO:
 
-Neste projeto, desenvolvi uma robusta API de CRUD de usuários utilizando Node.js e a biblioteca Express, com o MongoDB como sistema de gerenciamento de banco de dados. A aplicação oferece funcionalidades abrangentes, permitindo a criação (cadastro), listagem, atualização, exclusão e autenticação de usuários no sistema.
+# 🛠️ User Management API
 
+This project is a robust **RESTful API** for user management, developed using **Node.js** with the **Express** framework and **MongoDB** as the database. It offers complete CRUD operations along with authentication functionalities.
 
----------------------------------------------------------------------------------------------------------------------------------------------->
+---
 
-// FUNCIONALIDADES:
+## 🚀 Features
 
-Criar um usuário;
+- Create a user
+- Authenticate (login) a user
+- List all users
+- Update user information
+- Delete a user
+- Token-based authentication
 
-Logar um usuário;
+---
 
-Listar usuários;
+## 📦 Technologies Used
 
-Atualizar dados de um usuário;
+- **MongoDB** + **Mongoose** for data persistence and schema modeling
+- **Nodemon** for automatic server restart during development
+- **Dotenv** for secure environment variable management
+- **Bcrypt** for password hashing and enhanced security
+- **JsonWebToken (JWT)** for authentication and authorization
+- **Visual Studio Code** as the development environment
 
-Deletar um usuário.
+---
 
----------------------------------------------------------------------------------------------------------------------------------------------->
+## 🧪 How to Use
 
+### 📍 Register a User
 
-// COMO EXECUTAR?
-
-Como cadastrar um usuário?
-
-1- Para cadastrar(criar) um usuário você vai precisar acessar a rota: "http://localhost:3000/register" com o método POST ativado para o usuário adicionar as informações;
-
-2- Não esqueça de adicionar a extrutura JSON para fazer a leitura das informações;
-
-3- Exemplo de cadastro:
-
+**Endpoint:** `POST http://localhost:3000/register`  
+**Request Body (JSON):**
+```json
 {
-
-	"name": "Thiago",
- 
-	"email": "teste@ghmail.com",
- 
-	"password": "4002",
- 
-	"confirmpassword": "4002",
- 
-	"birthdate": "01/03/2004"
+  "name": "Thiago",
+  "email": "test@gmail.com",
+  "password": "4002",
+  "confirmpassword": "4002",
+  "birthdate": "2004-03-01"
 }
+```
 
-________________________________________________________________
+---
 
-Como logar um usuário?
+### 🔐 Authenticate a User
 
-1- Para autenticar um usuário você vai precisar acessar a rota: "http://localhost:3000/authenticate" com o método POST ativado para o usuário adicionar as informações;
-
-2- Não esqueça de adicionar a extrutura JSON para fazer a leitura das informações;
-
-3- Exemplo de cadastro:
-
+**Endpoint:** `POST http://localhost:3000/authenticate`  
+**Request Body (JSON):**
+```json
 {
-
-	"email": "teste@gmail.com",
- 
-	"password": "4002"
+  "email": "test@gmail.com",
+  "password": "4002"
 }
+```
 
-________________________________________________________________
+---
 
-Como listar usuários?
+### 👥 List Users
 
-Para listar um usuário você vai precisar acessar a rota: "http://localhost:3000/users" ou "http://localhost:3000/users?limit=2&offset=0" caso queira limitar a quantidade de usuários por página
-(Não esqueça de executar com o método GET!);
+**Endpoint:** `GET http://localhost:3000/users`  
+Optional pagination:  
+`GET http://localhost:3000/users?limit=2&offset=0`
 
-________________________________________________________________
+---
 
-Como atualizar dados de um usuário?
+### ✏️ Update a User
 
-1- Para atualizar dados de um usuário você vai precisar acessar a rota: "//localhost:3000/user/ID" com o método PUT ativado para alterar informações
-(No lugar do "ID" coloca-se o ID do usuário que deseja atualizar);
+**Endpoint:** `PUT http://localhost:3000/user/{id}`  
+Replace `{id}` with the actual user ID.
 
-2- Exemplo de como atualizar: 
-
+**Request Body (JSON):**
+```json
 {
-
-	  "name": "Thiago",
-   
-  	"email": "novoexemplo@gmail.com",
-   
-    "oldpassword": "4002",
-    
-	  "password": "1234",
-   
-	  "birthdate": "01/03/2004"
+  "name": "Thiago",
+  "email": "newemail@gmail.com",
+  "oldpassword": "4002",
+  "password": "1234",
+  "birthdate": "2004-03-01"
 }
+```
 
-________________________________________________________________
+---
 
-Como deletar um usuário?
+### ❌ Delete a User
 
-1- Para deletar um usuário você vai precisar acessar a rota: "//localhost:3000/user/ID" com o método DELETE ativado para deletar o usuário escolhido
-(No lugar do "ID" coloca-se o ID do usuário que deseja deletar);
+**Endpoint:** `DELETE http://localhost:3000/user/{id}`  
+Replace `{id}` with the user ID to be deleted.
 
-________________________________________________________________
+---
 
+## 🔐 Security Notes
 
-INSTRUÇÔES ADICIONAIS:
+Each user receives a **JWT token** upon authentication to secure their session and prevent unauthorized access to update or delete actions.
 
-Cada usuário receberá um Token de acesso para impedir que outros usuariós alterem ou deletem seus dados!
+---
 
+## 📄 License
 
+This project is licensed under the **MIT License**. You are free to use, modify, and distribute it.
 
----------------------------------------------------------------------------------------------------------------------------------------------->
-
-
-
-
-// TECNOLOGIAS UTILIZADAS:
-
-->  Para o banco de dados, optei pelo MongoDB, fazendo uso da biblioteca "Mongoose" para facilitar o armazenamento e manipulação dos dados da minha aplicação;
-
-
-->  Incluí o "nodemon" no projeto para reiniciar automaticamente minha API sempre que uma alteração no código for realizada, proporcionando um ambiente de desenvolvimento mais eficiente;
-
-
-->  Adotei o "dotenv" para armazenar informações sensíveis do meu banco, garantindo uma gestão mais segura de variáveis de ambiente;
-
-
-->  Implementei o "bcrypt" para proteger as senhas dos usuários através de criptografia, aumentando a segurança da aplicação;
-
-
-->  Integrei o "Jsonwebtoken" para restringir o acesso a usuários não cadastrados no sistema, contribuindo para a segurança e controle de permissões na minha aplicação.
-
-
-->  Utilizei o Visual Studio Code como ambiente de execução para minha API.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---
